@@ -1,0 +1,23 @@
+html
+  head
+    meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
+    meta(name='viewport', content='width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0')
+    meta(name='og:title', content=typeof(title) !== 'Erik Freer' ? title : "Untitled template")
+    link(rel='stylesheet', href='/styles/main.css')
+  body.projects 
+    title Erik Freer
+    a(href="/") << Freer Studio 
+
+    h1 #{payload.title}
+    p #{payload.info}
+
+    if payload.images 
+      ul
+        each imgUrl in payload.images
+          li 
+            img(src=imgUrl)
+
+    if payload.video 
+      div.video-wrapper
+        iframe(src=payload.video frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen)
+        //- width="960" height="540" 

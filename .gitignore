@@ -1,0 +1,7 @@
+node_modules/
+./scripts/helpers/firebaseCredential.json
+Work/
+.aws-config.json
+s3bucketPolicy
+helpers/firebaseCredential.json
+configs/

@@ -1,0 +1,45 @@
+ul{
+
+}
+ul li {
+  list-style: none;
+}
+
+.projects img{
+  width: 100%;
+}
+
+.projects iframe{
+  width: 100%;
+}
+p {
+  max-width: 600px;
+  width: 80%;
+  margin: auto;
+}
+a{
+  text-decoration: none;
+}
+
+.vp-player-layout{
+  left: 0;
+  right: 0;
+  width: 100%;
+}
+.video-wrapper{
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+	padding-top: 25px;
+	height: 0;
+}
+iframe{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+video{
+  width: 100% !important;
+  height: 100% !important;
+}
