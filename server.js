@@ -52,9 +52,13 @@ app.get('/projects/:key', function(req, res){
 // });
 
 app.get('/about', function(req, res){
-	res.render('about')
+	firestoreSDK.getBiography().then(docs => {
+		console.log('SERVER recieve biography : ', docs);
+
+		res.render('about', {docs});
+	})
 });
 
-app.listen(8080);
+app.listen(3000);
 // app.listen(443);
-console.log('Listening on port 8080');
+console.log('Listening on port 3000');

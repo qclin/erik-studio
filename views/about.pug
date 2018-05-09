@@ -1,0 +1,21 @@
+html
+  head
+    meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
+    meta(name='viewport', content='width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0')
+    meta(name='keywords', content='Erik Freer Studio')
+    meta(name='description', content='Description')
+    meta(name='og:title', content=typeof(title) !== 'Erik Freer' ? title : "Untitled template")
+    link(rel='shortcut icon', href='./images/favicon.jpg', type='image/x-icon') 
+    link(rel='stylesheet', href='./styles/main.css')
+  body
+    a(href="/") << Freer Studio 
+    h3 about 
+    p #{docs[1].info}
+    
+    h3 Contact 
+    each social in Object.keys(docs[0])
+    
+      //- p= Object.keys(social)
+      p= social  
+        span : #{docs[0][social]}
+      

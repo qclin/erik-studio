@@ -55,7 +55,26 @@ function getProjectbyKey(key){
     return deferred.promise;
 }
 
+function getBiography(){
+  var deferred = Q.defer();
+  db.collection('about').get().then((snapshot) => {
+    var payload = [];
+    console.log("----------- snap snap ", snapshot);
+    snapshot.forEach((doc) => {
+      payload.push(doc.data());
+    });
+
+    deferred.resolve(payload)
+
+  }).catch((err) =>{
+    console.log('Error getting documents', err);
+    deferred.resolve(err)
+  });
+  return deferred.promise;
+}
+
 module.exports = {
   getProjects,
-  getProjectbyKey
+  getProjectbyKey,
+  getBiography
 }
