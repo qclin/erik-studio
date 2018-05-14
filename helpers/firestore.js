@@ -1,6 +1,6 @@
 const admin = require('firebase-admin');
 var Q = require('q');
-
+const Firestore = require('@google-cloud/firestore');
 var serviceAccount = require('../configs/erik-studio-firebase-adminsdk-0osez-dadc403849.json');
 
 admin.initializeApp({
@@ -19,16 +19,17 @@ var db = admin.firestore();
 // });
 
 
+// Firestore.FieldPath.documentId()
 // READ
 function getProjects(){
   var deferred = Q.defer();
-  db.collection('projects').get().then((snapshot) => {
+  db.collection('projects').orderBy('sequence','desc').get().then((snapshot) => {
       var payload = [];
       snapshot.forEach((doc) => {
         // console.log(doc.id, '=>', doc.data());
         var dummy = new Object();
         dummy.key = doc.id
-        dummy.title = doc.data().title
+        dummy.fields = doc.data();
         payload.push(dummy);
       });
       deferred.resolve(payload);

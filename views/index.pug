@@ -7,7 +7,6 @@ html
     meta(name='og:title', content=typeof(title) !== 'Erik Freer' ? title : "Untitled template")
     link(rel='shortcut icon', href='./images/favicon.jpg', type='image/x-icon') 
     link(rel='stylesheet', href='./styles/main.css')
-    link(rel='stylesheet', href='./styles/home.css')
     link(rel='stylesheet', href='https://fonts.googleapis.com/icon?family=Material+Icons')
     title Erik Freer
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js')
@@ -18,10 +17,21 @@ html
       //- include partials/preview.pug
       h1 Freer Studio
       //- - var value = 
-      ul
+      ul.projects
         each val, index in projectList
           li
-            a(href=`projects/${val.key}`) #{val.title} 
+            h1(id=`${val.key}`) #{val.fields.title} 
+            p #{val.fields.info}
+            if val.fields.images 
+              ul
+                each imgUrl in val.fields.images
+                  li 
+                    img(src=imgUrl)
+
+            if val.fields.video 
+              div.video-wrapper
+                iframe(src=val.fields.video frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen)
+
       h1 
         a(href='/about') about 
     script(type='text/javascript', src='./scripts/main.js')

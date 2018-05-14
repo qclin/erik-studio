@@ -15,3 +15,5 @@ https://firebase.google.com/docs/firestore/quickstart
 requires config files for
   - Firebase Admin SDK
   - Firebase credential json
+
+  npm install --save @google-cloud/firestore
